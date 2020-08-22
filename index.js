@@ -97,7 +97,7 @@ function f(p, s)
     }
     for (let cou = 0; cou < 250; cou++)
     {
-        p = messUp(messUp2(password).substr(0, 255)).substr(0, 126);
+        p = messUp(messUp2(p).substr(0, 255)).substr(0, 126);
     }
     return(p);
 }
