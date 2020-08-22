@@ -83,23 +83,23 @@ function messUp(a)
         b = b + c[i];
     return(b);
 }
-function f(password, salt)
+function f(p, s)
 {
-    for (let j = 0; j < salt.length; j++)
+    for (let j = 0; j < s.length; j++)
     {
-        for (let i = 0; i < password.length; i+=2)
+        for (let i = 0; i < p.length; i+=2)
         {
-            if (salt.length == j)
+            if (s.length == j)
                 break;
-            password = password.substr(0, i) + salt.substr(j, 1) + password.substr(i);
+            p = p.substr(0, i) + s.substr(j, 1) + p.substr(i);
             j++;
         }
     }
     for (let cou = 0; cou < 250; cou++)
     {
-        password = messUp(messUp2(password).substr(0, 255)).substr(0, 126);
+        p = messUp(messUp2(password).substr(0, 255)).substr(0, 126);
     }
-    return(password);
+    return(p);
 }
 console.time('summary');
 console.time('c++');
