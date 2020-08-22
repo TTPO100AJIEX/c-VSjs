@@ -75,23 +75,23 @@ string messUp(string a)
     }
     return(c);
 }
-string f(string password, string salt)
+string f(string p, string s)
 {
-    for (int j = 0; j < salt.size(); j++)
+    for (int j = 0; j < s.size(); j++)
     {
-        for (int i = 0; i < password.size(); i+=2)
+        for (int i = 0; i < p.size(); i+=2)
         {
-            if (salt.size() == j)
+            if (s.size() == j)
                 break;
-            password = password.substr(0, i) + salt.substr(j, 1) + password.substr(i);
+            p = p.substr(0, i) + s.substr(j, 1) + p.substr(i);
             j++;
         }
     }
     for (int cou = 0; cou < 250; cou++)
     {
-        password = messUp(messUp2(password).substr(0, 255)).substr(0, 126);
+        p = messUp(messUp2(p).substr(0, 255)).substr(0, 126);
     }
-    return(password);
+    return(p);
 }
 void Sum(const v8::FunctionCallbackInfo<v8::Value>& args)
 {
